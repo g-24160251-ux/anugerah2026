@@ -130,7 +130,7 @@ h2{color:var(--n)}h2:after{content:"";display:block;width:80px;height:3px;margin
 <p id="tc" style="opacity:.9"></p>
 <button class="btn" id="tb" style="margin-top:12px">LIHAT ANUGERAH</button>
 </div>
-<p class="ver">Versi 10</p>
+<p class="ver">Versi 11</p>
 <div id="kc"><h2 style="margin:0;color:#F5D76E">KAD TAHNIAH</h2><img id="ki" alt="Kad Tahniah"><p id="km" style="font-size:13px;max-width:300px"></p><div><button class="btn" id="ks" style="padding:12px 22px">KONGSI</button> <a class="btn" id="kd" download="Kad-Tahniah.png" style="padding:12px 22px">MUAT TURUN</a></div><button class="lnk" id="kx" style="color:#fff">Tutup</button></div>
 <footer class="rbb"></footer>
 <script>
@@ -214,7 +214,7 @@ function enter(snd){$('#splash').style.opacity=0;setTimeout(()=>$('#splash').rem
 $('#go').onclick=()=>enter(1);$('#gos').onclick=()=>enter(0);$('#mt').onclick=()=>{if(au){au.muted=!au.muted;$('#mt').textContent=au.muted?'✕':'♪'}};
 $$('[data-v]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.v)));
 (async()=>{const[t,m,a,k]=await Promise.all(['Tetapan','Murid','Anugerah','Kategori'].map(tab));
-C=Object.assign({},DEF,Object.fromEntries((t||[]).filter(x=>x.nilai).map(x=>[x.kunci,x.nilai])));M=m||[];A=a||[];K=k||[];const HIDE=/PAJSK/i;A=A.filter(x=>!HIDE.test(x.Kategori));K=K.filter(x=>!HIDE.test(x.Kategori));M=M.filter(x=>A.some(y=>norm(y['Nama murid'])==norm(x.Nama)));
+C=Object.assign({},DEF,Object.fromEntries((t||[]).filter(x=>x.nilai).map(x=>[x.kunci,x.nilai])));M=m||[];A=a||[];K=k||[];const HIDE=/PAJSK/i;A=A.filter(x=>!HIDE.test(x.Kategori));K=K.filter(x=>!HIDE.test(x.Kategori));const SEC=new Set(K.filter(k=>k['Rahsia?']=='Y'&&k['Tarikh dedah']&&new Date()<dt(k['Tarikh dedah'])).map(k=>k.Kategori));A=A.filter(x=>!SEC.has(x.Kategori));M=M.filter(x=>A.some(y=>norm(y['Nama murid'])==norm(x.Nama)));
 if(SHEET_ID&&!A.length)$('#semak .p').textContent='Data belum dapat dimuatkan. Sila muat semula halaman atau cuba sebentar lagi.'+(ERR.length?' ('+ERR[0]+')':' (tab Anugerah kosong)');const RB='<svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="rn" x1="0" x2="1"><stop offset="0" stop-color="#061237"/><stop offset=".6" stop-color="#1537a8"/><stop offset="1" stop-color="#0B1F5C"/></linearGradient><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#8a6410"/><stop offset=".5" stop-color="#f5d76e"/><stop offset="1" stop-color="#b8901a"/></linearGradient></defs><path d="M0 0H400V62C320 98 250 30 170 64S40 132 0 152Z" fill="url(#rn)"/><path d="M0 0H400V28C330 55 260 6 190 30S50 92 0 106Z" fill="#0B1F5C" opacity=".6"/><path d="M0 152C40 132 110 82 170 64S320 98 400 62" fill="none" stroke="url(#rg)" stroke-width="3.5"/><path d="M0 170C60 142 120 102 175 84S320 122 400 80" fill="none" stroke="url(#rg)" stroke-width="2"/></svg>';
 let lf='';for(let i=0;i<9;i++){const t=i/8,x=40-24*Math.sin(t*2.6),y=152-t*140,a=-25-t*35;lf+='<ellipse cx="'+(x-9)+'" cy="'+y+'" rx="12" ry="4.6" transform="rotate('+a+' '+(x-9)+' '+y+')" fill="url(#gl)"/><ellipse cx="'+(x+8)+'" cy="'+(y-7)+'" rx="12" ry="4.6" transform="rotate('+(180-a)+' '+(x+8)+' '+(y-7)+')" fill="url(#gl)"/>'}
 const LAU='<svg viewBox="0 0 70 160"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#a77d12"/><stop offset=".5" stop-color="#f5d76e"/><stop offset="1" stop-color="#b8901a"/></linearGradient></defs><path d="M42 154C18 110 18 50 44 8" fill="none" stroke="#b8901a" stroke-width="2"/>'+lf+'</svg>';
