@@ -110,7 +110,7 @@ h2{color:var(--n)}h2:after{content:"";display:block;width:80px;height:3px;margin
 <div class="card w"><i class="ib" data-i="user"></i><h4>PERASMI</h4><p id="i5"></p><small id="i6"></small></div>
 </div>
 <button class="btn big" data-v="semak">SEMAK ANUGERAH ANAK</button>
-<div class="two"><a class="btn2" id="bk"></a></div><p id="lm" class="p" style="font-size:13px;margin:6px 0 0"></p>
+<div class="two" style="grid-template-columns:1fr 1fr"><a class="btn2" id="bk"></a><a class="btn2" id="pb"></a></div><p id="lm" class="p" style="font-size:13px;margin:6px 0 0"></p>
 <p style="text-align:center"><button class="lnk" id="cal">+ Tambah ke Kalendar</button></p>
 <div class="st" id="st"></div>
 </section>
@@ -135,7 +135,7 @@ h2{color:var(--n)}h2:after{content:"";display:block;width:80px;height:3px;margin
 <footer class="rbb"></footer>
 <script>
 const SHEET_ID='1to3x_QB47JJXacodSUQPGic8D7Mh1Ndq94W0Yt9s2ZI';
-const LINKS={buku:''};/* tampal pautan buku program dan photobooth di sini, atau di tab Tetapan */
+const LINKS={buku:'',photobooth:'photobooth/'};/* tampal pautan buku program dan photobooth di sini, atau di tab Tetapan */
 const DEF={nama_sekolah:'SK Peramu Jaya',tajuk_majlis:'Majlis Anugerah Kecemerlangan',tarikh:'2026-11-28',masa_mula:'8.00 pagi',masa_tamat:'',tempat:'Dewan Al-Farabi SK Peramu Jaya',kehadiran:'Semua murid & ibu bapa',anggaran_tetamu:'350',perasmi:'Tuan Haji Ab. Muhaimin Bin Ab. Hamid',jawatan_perasmi:'Pegawai Pendidikan Daerah, PPD Pekan',url_muzik:'musik.mp3',warna_utama:'#0B1F5C',warna_kedua:'#061237',warna_aksen:'#D4AF37',mesej_tahniah:'Tahniah atas kecemerlangan anda!'};
 const DEMO={Tetapan:[],Murid:[{Nama:'Aiman Bin Contoh',Kelas:'2 Ar-Rahman'},{Nama:'Sofea Binti Contoh',Kelas:'6 Al-Farabi'}],
 Anugerah:[{'Nama murid':'Aiman Bin Contoh',Kelas:'2 Ar-Rahman',Kategori:'Anugerah Sahsiah & Akademik Terbaik',Tahun:'Tahun 2',Perihal:'Sahsiah dan akademik terbaik','Tarikh anugerah':''},{'Nama murid':'Aiman Bin Contoh',Kelas:'2 Ar-Rahman',Kategori:'Anugerah Penghafaz Terbaik',Tahun:'Tahun 2',Perihal:'Selesai semua silibus hafazan','Tarikh anugerah':''},{'Nama murid':'Sofea Binti Contoh',Kelas:'6 Al-Farabi',Kategori:'Anugerah Khas Kokurikulum',Tahun:'Tahun 6',Perihal:'Top 5 peringkat negeri','Tarikh anugerah':''}],
@@ -220,6 +220,7 @@ let lf='';for(let i=0;i<9;i++){const t=i/8,x=40-24*Math.sin(t*2.6),y=152-t*140,a
 const LAU='<svg viewBox="0 0 70 160"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#a77d12"/><stop offset=".5" stop-color="#f5d76e"/><stop offset="1" stop-color="#b8901a"/></linearGradient></defs><path d="M42 154C18 110 18 50 44 8" fill="none" stroke="#b8901a" stroke-width="2"/>'+lf+'</svg>';
 $('#lvl').innerHTML=$('#lvr').innerHTML=LAU;$('.lg2').src=$('.lg').src;$('.rbt').innerHTML=RB;$('.rbb').innerHTML=RB;$('#h3').textContent=C.nama_sekolah.toUpperCase();
 [['bk','url_buku_program','buku','BUKU PROGRAM',LINKS.buku]].forEach(([id,k,ic,t,d])=>{const a=$('#'+id),fk=Object.keys(C).find(x=>/buku|anyflip/i.test(x)&&/^https?:\/\//i.test(C[x])),u=C[k]||(fk&&C[fk])||d;a.innerHTML=SV(ic)+'<span>'+t+'</span>';if(u){a.href=u;a.target='_blank';a.rel='noopener'}else{a.classList.add('off');a.onclick=e=>{e.preventDefault();$('#lm').textContent='Pautan '+t.toLowerCase()+' akan dikongsi tidak lama lagi.'}}});
+[['pb','url_photobooth','camera','PHOTOBOOTH FRAME',LINKS.photobooth]].forEach(([id,k,ic,t,d])=>{const a=$('#'+id),u=C[k]||d;a.innerHTML=SV(ic)+'<span>'+t+'</span>';if(u){a.href=u;a.target='_blank';a.rel='noopener'}else{a.classList.add('off');a.onclick=e=>{e.preventDefault();$('#lm').textContent='Pautan '+t.toLowerCase()+' akan dikongsi tidak lama lagi.'}}});
 $('#tt').src=$('.tro').src;theme();$$('[data-i]').forEach(e=>e.innerHTML=SV(e.dataset.i));home();cats();
 })();
 </script></body></html>
